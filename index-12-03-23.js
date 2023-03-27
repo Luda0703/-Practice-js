@@ -284,3 +284,15 @@
 
 // note1.updatePriority("note1", Notes.Priopity().LOW);
 // console.log(note1.getItems());
+
+// Завдання 1
+// При натисканні на кнопку "SHOW ME", потрібно за допомогою alert 
+// вивести значення, яке будемо вводити в інпут.
+
+// const btn = docoment.querySelector('#alertButton');
+// btn.addEventListener('click', onClick)
+
+// function onClick (evt) {
+//     alert("")
+
+// }
