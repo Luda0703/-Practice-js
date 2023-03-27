@@ -236,51 +236,51 @@
 // console.log(note1(getItems))
 // note1.addNote({text: 'note2', priority: Notes.Priopity()LOW});
 
-class Notes {
-    static Priopity () {
-        return {
-        HIGHT: "hight",
-        LOW: "low",
-    };
+// class Notes {
+//     static Priopity () {
+//         return {
+//         HIGHT: "hight",
+//         LOW: "low",
+//     };
 
-    };
+//     };
 
-    constructor () {
-        this.items = [];
-    };
+//     constructor () {
+//         this.items = [];
+//     };
 
-    addNote(note) {
-        return this.items.push(note);
-    };
+//     addNote(note) {
+//         return this.items.push(note);
+//     };
 
-    getItems () {
-        return this.items;
-    }
+//     getItems () {
+//         return this.items;
+//     }
 
-    removeNote(noteText) {
-        const indItem = this.items.findIndex(note => note.text === noteText);
-        if (indItem !== -1) {
-            return this.items.splice(indItem, 1);
-        };
-    };
+//     removeNote(noteText) {
+//         const indItem = this.items.findIndex(note => note.text === noteText);
+//         if (indItem !== -1) {
+//             return this.items.splice(indItem, 1);
+//         };
+//     };
 
-    updatePriority(noteText, newPriority) {
-        const indItem = this.items.findIndex(note => note.text === noteText);
-        if (indItem !== -1) {
-            this.items[indItem].priority = newPriority;
-        }
-    };
-};
+//     updatePriority(noteText, newPriority) {
+//         const indItem = this.items.findIndex(note => note.text === noteText);
+//         if (indItem !== -1) {
+//             this.items[indItem].priority = newPriority;
+//         }
+//     };
+// };
 
-const note1 = new Notes ()
-note1.addNote({text: "note1", priority: Notes.Priopity().HIGHT})
-console.log(note1.getItems());
+// const note1 = new Notes ()
+// note1.addNote({text: "note1", priority: Notes.Priopity().HIGHT})
+// console.log(note1.getItems());
 
-note1.addNote({text: "note2", priority: Notes.Priopity().LOW})
-console.log(note1.getItems());
+// note1.addNote({text: "note2", priority: Notes.Priopity().LOW})
+// console.log(note1.getItems());
 
-note1.removeNote("note2");
-console.log(note1.getItems());
+// note1.removeNote("note2");
+// console.log(note1.getItems());
 
-note1.updatePriority("note1", Notes.Priopity().LOW);
-console.log(note1.getItems());
+// note1.updatePriority("note1", Notes.Priopity().LOW);
+// console.log(note1.getItems());
