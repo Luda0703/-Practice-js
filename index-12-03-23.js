@@ -285,14 +285,98 @@
 // note1.updatePriority("note1", Notes.Priopity().LOW);
 // console.log(note1.getItems());
 
+
+//////////////////// 26-03-23 /////////////////////
+
 // Завдання 1
 // При натисканні на кнопку "SHOW ME", потрібно за допомогою alert 
 // вивести значення, яке будемо вводити в інпут.
 
-// const btn = docoment.querySelector('#alertButton');
+// const btn = document.querySelector("#alertButton");
+// const input = document.querySelector("#alertInput");
 // btn.addEventListener('click', onClick)
 
 // function onClick (evt) {
-//     alert("")
+//     alert (input.value);
+//     console.dir(input)
+// }
 
+
+// Завдання 2
+// При натисканні на кнопку SHOW ME зробири так, щоб значення двох інпутів
+// мінялися місцями. Тобто значення правого інпуту стало на місце лівого і навпаки.
+
+// const btn = document.querySelector("#showButton");
+// const inputRight = document.querySelector("#leftSwapInput");
+// const inputLeft = document.querySelector("#rightSwapInput");
+
+// btn.addEventListener('click', onClick);
+
+// function onClick(evt) {
+//     const oneValue = inputRight.value;
+//     inputRight.value = inputLeft.value;
+//     inputLeft.value = oneValue;
+// }
+
+
+// Завдання 3
+// При написканні на кнопку "Приховати" потрібно введені користувачем
+// символи в інпут відображати у виглялді кнопок замість звичайного
+// туксту, а також змінити назві кнопки на "Показати", при повторному
+//  натисканні знову будемо відображати символи, а назва кнопки зміниться
+//  на "Приховати".
+
+// const btn = document.getElementById("passwordButton");
+// const input = document.getElementById("passwordInput");
+
+// btn.addEventListener('click', onClickButton)
+
+// function onClickButton (evt) {
+//     if(input.type === 'text') {
+//         input.type = 'password';
+//         evt.target.textContent = "Показати"
+//         // btn.textContent = "Показати"
+//     } else {
+//         input.type = 'text';
+//         evt.target.textContent = "Приховати"
+//         // btn.textContent = "Приховати"
+//     }
+// }
+
+
+// Завдання 4
+// Кнопка "Зменшити" повинна зменшити квадрат на 10рх.
+// Кнопка "Збільшити" повинна збільшити квадрат на 10рх.
+
+// const decrease = document.getElementById("decrease");
+// const increase = document.getElementById("increase");
+// const box = document.getElementById("box");
+
+// function changeSize(evt) {
+//     const {offsetWidth} = box;
+//     const id = evt.target.id; 
+
+//     if(id === "increase") {
+//         box.style.width = `${offsetWidth + 10}px`;
+//         box.style.height = `${offsetWidth + 10}px`;
+//     } else {
+//         box.style.width = `${offsetWidth - 10}px`;
+//         box.style.height = `${offsetWidth - 10}px`;
+//     }
+// }
+// increase.addEventListener('click', changeSize);
+// decrease.addEventListener('click', changeSize);
+
+// Завдання 5
+// При кліку на кнопку "Filter" потрібно видалити в списку
+// перелічені елементи.
+
+// const form = document.querySelector(".checkboxForm");
+// form.addEventListener('submit', getSubmit);
+
+// function getSubmit(evt) {
+//     evt.preventDefault()
+//     const lists = document.querySelectorAll(".checkboxWraper");
+//     const filterElem = [...lists].filter(el => el.lastElementChild.checked);
+//     filterElem.forEach(element => element.remove());
 // }
