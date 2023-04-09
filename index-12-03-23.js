@@ -380,3 +380,206 @@
 //     const filterElem = [...lists].filter(el => el.lastElementChild.checked);
 //     filterElem.forEach(element => element.remove());
 // }
+
+///////////////////////////// 09-04-23 /////////////////////////
+
+// Задача 1
+// Перероби функцію на проміс таким чином, щоб проміс повертав значення
+// через 2 секунди після виклику функції.
+
+// function greet() {
+    
+//     new Promise(resolve => {
+//         setTimeout(() => {
+//             resolve ('hello world')
+
+//         }, 2000)
+//     }).then(() => console.log('hello world'))
+// }
+
+// greet()
+
+///////////////////////////////////////////////////////////////////
+
+// Задача 2
+// За допомогою prompt запропонуйте користувачу ввести значення.
+// Створіть функцію checkValue(value), всередині якої буде Promise
+// Якщо введене користувачем значення не є числом, потрібно відхилити проміс і логувати 'error'
+// Якщо введене користувачем значення є число і воно парне, розв'язуй проміс і повертай 'even'
+// через 1 секунду.
+// Якщо введене користувачем значення є число і воно не парне, розв'язуй проміс і повертай 'odd'
+// через 2 секунди.
+
+// const value = prompt(`введіть значення`)
+
+// function checkValue(value) {
+//    return new Promise ((resolve, reject) => {
+//     if(!isNaN(value) && value) {
+//         value % 2 === 0? setTimeout(() => {
+//             resolve('even')
+//         }, 1000) : setTimeout(() => {
+//             resolve('odd')
+//         }, 2000);
+//     }
+//     reject('error');
+//    })
+// }
+
+// checkValue(value).then(console.log).catch(console.log)
+
+// const value = prompt("Введіть значення");
+
+// function checkValue(value) {
+//   return new Promise((resolve, reject) => {
+//     if (!isNaN(value) && value) {
+//       value % 2 === 0
+//         ? setTimeout(() => resolve("even"), 1000)
+//         : setTimeout(() => resolve("odd"), 2000);
+//     } else {
+//       reject("error");
+//     }
+//   });
+// }
+
+// checkValue(value).then(console.log).catch(console.log);
+
+///////////////////////////////////////////////////////
+
+// * Якщо імейл і пароль користувача збігаються, при сабміті зберігай дані з форми
+// * у локальне сховище і змінюй кнопку login на logout і роби поля введення
+// * Недоступними для зміни.
+// * При перезавантаженні сторінки, якщо користувач залогінений, ми повинні бачити logout-кнопку
+// * та недоступні для зміни поля з даними користувача.
+// * Клік по кнопці logout повертає все в початковий вигляд і видаляє дані користувача
+// * З локального сховища.
+// *
+// * Якщо введені дані не збігаються з потрібними даними, викликати аlert і
+// * повідомляти про помилку.
+
+// const USER_DATA = {
+//     email: 'user@mail.com',
+//     password: 'secret',
+// };
+
+// const LOCAL_KEY = 'LOCAL_KEY';
+
+// const form = document.getElementById('login-form');
+// const {email, password, button} = form;
+// const startData = localStorage.getItem(LOCAL_KEY);
+// const parsData = JSON.parse(startData);
+// // console.log(parsData)
+// if(parsData) {
+//     form.elements.email.value = parsData.userEmail;
+//     form.elements.password.value = parsData.userPassword;
+//     form.elements.email.disabled = true;
+//     form.elements.password.disabled = true;
+//     form.elements.button.textContant = 'logout';
+// }
+
+// form.addEventListener('submit', onSubmit);
+
+// function onSubmit(e) {
+//     e.preventDafault();
+//     if(JSON.parse(localStorage.getItem(LOCAL_KEY))) {
+//         form.elements.email.disabled = false;
+//         form.elements.password.disabled = false;
+//         form.elements.button.textContant = 'login';
+    
+//         localStorage.removeItem(LOCAL_KEY);
+//         form.reset();
+//         return
+//     }
+//     if(form.elements.email.value !== USER_DATA.email || 
+//         form.elements.password.value !== USER_DATA.password) {
+//     }
+//         alert('Введіть правильні данні');
+//         return
+//     const formInrut = {
+//         userEmail: form.elements.email.value, 
+//         userPassword: form.elements.password.value,
+//     }
+//     localStorage.setItem(LOCAL_KEY, JSON.stringify(formInrut)); 
+//     form.elements.email.disabled = true;
+//     form.elements.password.disabled = true;
+//     form.elements.button.textContant = 'logout';
+// }
+// вариант 2
+// const USER_DATA = {
+//     email: "user@mail.com",
+//     password: "secret",
+//   };
+  
+//   const LOCAL_KEY = "LOCAL_KEY";
+  
+//   const form = document.getElementById("login-form");
+//   // console.dir(form);
+//   const { email, password, button } = form;
+//   const starData = localStorage.getItem(LOCAL_KEY);
+//   const parsData = JSON.parse(starData);
+  
+//   // console.log(parsData);
+//   if (parsData) {
+//     form.elements.email.value = parsData.userEmail;
+//     form.elements.password.value = parsData.userPassword;
+//     form.elements.email.disabled = true;
+//     form.elements.password.disabled = true;
+//     form.elements.button.textContent = "logout";
+//   }
+  
+//   form.addEventListener("submit", onSubmit);
+  
+//   function onSubmit(evt) {
+//     evt.preventDefault();
+//     if (JSON.parse(localStorage.getItem(LOCAL_KEY))) {
+//       form.elements.email.disabled = false;
+//       form.elements.password.disabled = false;
+//       form.elements.button.textContent = "login";
+  
+//       localStorage.removeItem(LOCAL_KEY);
+//       form.reset();
+//       return;
+//     }
+//     if (
+//       form.elements.email.value !== USER_DATA.email ||
+//       form.elements.password.value !== USER_DATA.password
+//     ) {
+//       alert("Введіть правільні данні");
+//       return;
+//     }
+//     const formInput = {
+//       userEmail: form.elements.email.value,
+//       userPassword: form.elements.password.value,
+//     };
+//     localStorage.setItem(LOCAL_KEY, JSON.stringify(formInput));
+//     form.elements.email.disabled = true;
+//     form.elements.password.disabled = true;
+//     form.elements.button.textContent = "logout";
+//   }
+
+//////////////////////////////////////////////
+
+// Задача 4
+// Кнопка increment повинна кожну секунду збільшувати значення на 1
+// Кнопка decrement повинна кожну секунду зменшувати значення на 1
+
+// const btns = document.querySelectorAll('.counter-button');
+// const count = document.querySelector('.counter-value')
+// let timer = null;
+
+// [...btns].forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//         if(e.target.dataset.action === 'increment') {
+//             timer = setInterval(() => {
+//                 let value = +count.textContent;
+//                 value += 1;
+//                 count.textContent = value;
+//             }, 1000);
+//             return;
+//         }
+//         timer = setInterval(() => {
+//             let value = +count.textContent;
+//             value -= 1;
+//             count.textContent = value;
+//         }, 1000);
+//     })
+// })
